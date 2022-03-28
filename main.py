@@ -6,14 +6,12 @@ Usage: python3 main.py autoinst.xml
 """
 
 import sys
-import xml.etree.ElementTree as ET
+from lxml import etree
 
 if len(sys.argv) != 2:
     print("Please provide an autoyast profile as argument. \nUsage: python3 main.py autoinst.xml")
     exit(1)
 
-ET.register_namespace('y2', 'http://www.suse.com/1.0/yast2ns')
-ET.register_namespace('config', 'http://www.suse.com/1.0/configns')
-ET.register_namespace('', 'http://www.suse.com/1.0/yast2ns')
-tree = ET.parse(sys.argv[1])
-tree.write('generated_autoinst.xml')
+tree = etree.parse(sys.argv[1])
+tree.write('generated_autoinst.xml', encoding="utf-8", xml_declaration=True)
+
