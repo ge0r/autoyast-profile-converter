@@ -43,8 +43,6 @@ tags = tags_to_delete + list(tags_to_replace.keys())
 # Append the XML namespace to all the tags
 XMLNS = "{http://www.suse.com/1.0/yast2ns}"
 tags_ns = [XMLNS + tag for tag in tags]
-
-# Append the XML namespace to all tags
 tags_to_replace = {XMLNS + key: value for key, value in tags_to_replace.items()}
 
 for element in root.iter(tags_ns):
