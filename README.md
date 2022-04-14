@@ -16,3 +16,13 @@ The output file will be prefixed with `generated_` and will have the following c
     | `<arch>` | `{{ARCH}}` |
     | `<version>` | `{{VERSION}}` |
     | `<ipaddr>` | `{{HostIP}}` |
+
+3. Registration code replacement inside `<addon>` (different from `<add-on>`) sections will depend on the name of the addon:
+    | Addon name | Replacement text|
+    | --- | ----------- |
+    | `<sle-ha>` | `{{SCC_REGCODE_HA}}` |
+    | `<sle-ha-geo>` | `{{SCC_REGCODE_GEO}}` |
+    | `<sle-we>` | `{{SCC_REGCODE_WE}}` |
+    | `<sle-rt>` | `{{SCC_REGCODE_RT}}` |
+    | `<sle-ltss>` | `{{SCC_REGCODE_LTSS}}` |
+    | `<sle-hpc>` | `{{SCC_REGCODE_HPC}}` |
