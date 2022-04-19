@@ -59,3 +59,7 @@ for element in root.iter(tags_ns):
         element.getparent().remove(element)
 
 tree.write(output_filename, encoding="utf-8", xml_declaration=True)
+
+# Append end of line at the end of file
+with open(output_filename, 'a') as fd:
+    fd.write('\n')
