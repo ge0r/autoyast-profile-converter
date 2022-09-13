@@ -18,8 +18,8 @@ output_filename = "generated_" + filename
 tree = etree.parse(filename)
 root = tree.getroot()
 
-# Define tags to replace list
-tags_to_delete = ["add-on", "append"]
+# Define tags to delete list
+tags_to_delete = ["add-on", "append", "printer"]
 
 # Define tags_to_replace dictionary
 # Key: element tag, value: replacement text
@@ -50,7 +50,7 @@ for element in root.iter(tags_ns):
         if element.text:
             element.text = tags_to_replace[element.tag]
 
-        # if the element you found is inside an "addon" section, it's tag is reg_code and it has registration code text
+        # if the element is inside an "addon" section, and it's tag is reg_code, and it has registration code text
         if element.getparent().tag == XMLNS + "addon" and element.tag == XMLNS + "reg_code" and element.text:
             # Replace the registration code with the variable that corresponds to that product
             for child in element.getparent().iter(XMLNS + "name"):
